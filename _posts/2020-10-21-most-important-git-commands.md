@@ -45,7 +45,7 @@ git merge otherBranchName
 
 **Examples**:
 
-*Create a local branch, do some changes, commit and push them to the remote repository:
+* Create a local branch, do some changes, commit and push them to the remote repository:
 ```
 git checkout -b newBranchName
 #here we do the changes that we want to do in the files......
@@ -54,7 +54,7 @@ git push -u origin newBranchName
 ```
 With the last command  `git push -u origin newBranchName`  we will create the new branch in the remote repository:
 
-*Merge master branch into other branch:
+* Merge master branch into other branch:
 ```
 git checkout master
 git pull
