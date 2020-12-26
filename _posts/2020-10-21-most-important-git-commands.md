@@ -52,7 +52,7 @@ git checkout -b newBranchName
 git commit -m "new changes...."
 git push -u origin newBranchName
 ```
-With the last command  `git push -u origin newBranchName`  we will create the new branch in the remote repository:
+With the last command  `git push -u origin newBranchName`  we will create the new branch in the remote repository.
 
 * Merge master branch into other branch:
 ```
