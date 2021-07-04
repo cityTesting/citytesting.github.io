@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is software testing?
+title: What is Software testing?
 categories: [testing]
 ---
 
