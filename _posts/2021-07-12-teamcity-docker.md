@@ -2,10 +2,10 @@
 layout: post
 title: Run Teamcity with docker
 categories: [Teamcity]
+---
 
 In this post we are going to show how to run Teamcity using docker, and how to start playing with it.
 
----
 **Prerequisites:**
 * Docker installed.
 * Any linux system.
