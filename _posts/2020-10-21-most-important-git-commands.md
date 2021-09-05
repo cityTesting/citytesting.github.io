@@ -30,6 +30,7 @@ git commit -m "message with information of the changes"
 git push
 git push -u origin newLocalBranchName
 ```
+
 **Branch**, The branch command is used to list, create or delete branches.
 * -a, list all branches (local and remote).
 * -d, delete local branch.
