@@ -23,16 +23,20 @@ git pull
 git commit
 git commit -m "message with information of the changes"
 ```
+
 **Push**, we use this command to upload the changes from our repository to the remote one.
 * -u, push changes to remote repository. If the branch does not exist remotly, it will create it there.
+
 ```
 git push
 git push -u origin newLocalBranchName
 ```
+
 **Branch**, The branch command is used to list, create or delete branches.
 * -a, list all branches (local and remote).
 * -d, delete local branch.
 * -D, force delete of a local branch.
+
 ```
 git branch
 git branch -a
