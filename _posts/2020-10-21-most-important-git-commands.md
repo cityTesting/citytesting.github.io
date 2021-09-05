@@ -5,7 +5,7 @@ categories: [git]
 ---
 Next we are going to detail the most common commands when we are using git. There are more, but these are the most useful.
 
-**Checkout**, is used to update the files in the working directory with the version of the branch from the remote repository.
+**Checkout**, It is used to update the files in the working directory with the version of the branch from the remote repository.
 * -b, to create a new local branch.
 
 ```
@@ -17,7 +17,7 @@ git checkout -b newLocalBranchName
 ```
 git pull
 ```
-**Commit**, is used to save our changes to the local repository.
+**Commit**, It is used to save our changes to the local repository.
 * -m, to add a message to the commit.
 
 ```
@@ -25,9 +25,22 @@ git commit
 git commit -m "message with information of the changes"
 ```
 **Push**, we use this command to upload the changes from our repository to the remote one.
+* - u, push changes to remote repository. If the branch does not exist remotly, it will create it there.
 ```
 git push
+git push -u origin newLocalBranchName
 ```
+**Branch**, The branch command is used to list, create or delete branches.
+* -a, list all branches (local and remote).
+* -d, delete local branch.
+* -D, force delete of a local branch.
+```
+git branch
+git branch -a
+git branch -d localBranchName
+git branch -D localBranchName
+```
+
 **Stash**, the command is used when we want to save the local changes but we don't want to commit or push them to the remote repository.
 * list, to list of all the stashed modifications.
 * apply, to apply one specific modification.
