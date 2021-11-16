@@ -8,6 +8,7 @@ All the infomation comes from [here](https://gitbook.deddy.me/test-dintegration-
 This method will use embedded Kafka.
 
 - Simulation of a consumer for testing our producer.
+
 ![](https://i.imgur.com/frha3N1.png?raw=true)
 
 
