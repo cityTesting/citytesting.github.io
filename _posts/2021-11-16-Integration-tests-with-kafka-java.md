@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kafka integration testing 
+title: Kafka integration testing (embedded Kafka)
 categories: [Java, Kafka]
 ---
 All the infomation comes from [here](https://gitbook.deddy.me/test-dintegration-avec-spring-boot-et-kafka/).
