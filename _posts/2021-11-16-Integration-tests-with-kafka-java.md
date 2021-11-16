@@ -13,7 +13,7 @@ This method will use embedded Kafka.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @DirtiesContext
-@EmbeddedKafka(topics = {TOPIC_OUT"})
+@EmbeddedKafka(topics = { "TOPIC_OUT"})
 public class ProducerServiceIntegrationTest {
     private static final String TOPIC_OUT = "TOPIC_OUT";
 
@@ -35,26 +35,28 @@ public class ProducerServiceIntegrationTest {
      */
     @Test
     public void itShould_ProduceCorrectExampleDTO_to_TOPIC_OUT() {
-
         // GIVEN
-        ExampleDTO exampleDTO = mockExampleDTO("Un nom", "Une description");
+        ExampleDTO exampleDTO = mockExampleDTO("name", "description");
         // simulation consumer
-        Map<String, Object> consumerProps = KafkaTestUtils.consumerProps(""group"", "false", embeddedKafkaBroker);
+        Map<String, Object> consumerProps = KafkaTestUtils.consumerProps("group_consumer_test", "false", embeddedKafkaBroker);
         consumerProps.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-        ConsumerFactory cf = new DefaultKafkaConsumerFactory<String, ExampleDTO>(consumerProps, new StringDeserializer(), new JsonDeserializer<>(ExampleDTO.class, false));
-        Consumer<String, ExampleDTO> consumerServiceTest = cf.createConsumer();
-        embeddedKafkaBroker.consumeFromAnEmbeddedTopic(consumerServiceTest, TOPIC_OUT);
 
+        Consumer<String, ExampleDTO> consumerServiceTest = new KafkaConsumer<String, ExampleDTO>(
+                consumerProps, new StringDeserializer(),
+                new JsonDeserializer<>(ExampleDTO.class,
+                        false));
+
+        embeddedKafkaBroker.consumeFromAnEmbeddedTopic(consumerServiceTest, TOPIC_OUT);
         // WHEN
         producerService.send(exampleDTO);
-
         // THEN
         ConsumerRecord<String, ExampleDTO> consumerRecordOfExampleDTO = KafkaTestUtils.getSingleRecord(consumerServiceTest, TOPIC_OUT);
         ExampleDTO valueReceived = consumerRecordOfExampleDTO.value();
 
-        assertEquals("Une description", valueReceived.getDescription());
-        assertEquals("Un nom", valueReceived.getName());
+        assertEquals("description", valueReceived.getDescription());
+        assertEquals("name", valueReceived.getName());
 
         consumerServiceTest.close();
     }
+}
   ```
