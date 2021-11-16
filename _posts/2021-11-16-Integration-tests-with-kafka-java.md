@@ -8,7 +8,8 @@ All the infomation comes from [here](https://gitbook.deddy.me/test-dintegration-
 This method will use embedded Kafka.
 
 - Simulation of a consumer for testing our producer.
-[Producer](https://i.imgur.com/frha3N1.png)
+![](https://i.imgur.com/frha3N1.png?raw=true)
+
 
 ```
 @ExtendWith(SpringExtension.class)
