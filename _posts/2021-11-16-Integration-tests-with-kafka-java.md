@@ -12,6 +12,8 @@ This method will use embedded Kafka.
 ![](https://i.imgur.com/frha3N1.png?raw=true)
 
 
+Java code:
+
 ```
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
