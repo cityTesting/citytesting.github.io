@@ -7,7 +7,7 @@ All the infomation comes from [here](https://gitbook.deddy.me/test-dintegration-
 
 This method will use embedded Kafka.
 
-- Simulation of a comnsumer for testing our Producer.
+- Simulation of a consumer for testing our producer.
 
 ```
 @ExtendWith(SpringExtension.class)
