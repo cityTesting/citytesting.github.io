@@ -9,7 +9,7 @@ This method will use embedded Kafka.
 
 - Simulation of a comnsumer for testing our Producer.
 
-  ```
+```
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @DirtiesContext
