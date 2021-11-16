@@ -120,6 +120,6 @@ public class ConsumerServiceIntegrationTest {
     }
 ```
 All the infomation comes from [here](https://gitbook.deddy.me/test-dintegration-avec-spring-boot-et-kafka/).
-And the code is here. [here](https://github.com/Kevded/integration-test-spring-kafka-with-embedded-kafka-consumer-and-producer).
+And the code is [here](https://github.com/Kevded/integration-test-spring-kafka-with-embedded-kafka-consumer-and-producer).
 
   
