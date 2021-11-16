@@ -3,9 +3,7 @@ layout: post
 title: Kafka integration testing (embedded Kafka)
 categories: [Java, Kafka]
 ---
-All the infomation comes from [here](https://gitbook.deddy.me/test-dintegration-avec-spring-boot-et-kafka/).
-
-This method will use embedded Kafka.
+All the infomation and the code of the consumer and producer comes from [here](https://gitbook.deddy.me/test-dintegration-avec-spring-boot-et-kafka/).
 
 - Simulation of a consumer for testing our producer.
 
@@ -65,3 +63,62 @@ public class ProducerServiceIntegrationTest {
     }
 }
   ```
+  
+- Simulation of a producer for testing our consumer.
+
+![](https://i.imgur.com/62RDZ3W.png?raw=true)
+
+
+Java code:
+
+```
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
+@DirtiesContext
+@EmbeddedKafka(topics = {"TOPIC_IN"})
+public class ConsumerServiceIntegrationTest {
+    Logger log = LoggerFactory.getLogger(ConsumerServiceIntegrationTest.class);
+
+    private static final String TOPIC_IN = "TOPIC_IN";
+
+    @Autowired
+    private EmbeddedKafkaBroker embeddedKafkaBroker;
+
+    @Autowired
+    private ExampleRepository exampleRepository;
+
+    public ExampleDTO mockExampleDTO(String name, String description) {
+        ExampleDTO exampleDTO = new ExampleDTO();
+        exampleDTO.setDescription(description);
+        exampleDTO.setName(name);
+        return exampleDTO;
+    }
+
+    /**
+     * We verify the output in the topic. But aslo in the database.
+     */
+    @Test
+    public void itShould_ConsumeCorrectExampleDTO_from_TOPIC_IN_and_should_saveCorrectExampleEntity() throws ExecutionException, InterruptedException {
+        // GIVEN
+        ExampleDTO exampleDTO = mockExampleDTO("Un nom 2", "Une description 2");
+        // simulation producer
+        Map<String, Object> producerProps = KafkaTestUtils.producerProps(embeddedKafkaBroker.getBrokersAsString());
+        log.info("props {}", producerProps);
+        Producer<String, ExampleDTO> producerTest = new KafkaProducer(producerProps, new StringSerializer(), new JsonSerializer<ExampleDTO>());
+        // WHEN
+        producerTest.send(new ProducerRecord(TOPIC_IN, "", exampleDTO));
+        // THEN
+        // we must have 1 entity inserted
+        // We cannot predict when the insertion into the database will occur. So we wait until the value is present. Thank to Awaitility.
+        await().atMost(Durations.TEN_SECONDS).untilAsserted(() -> {
+            var exampleEntityList = exampleRepository.findAll();
+            assertEquals(1, exampleEntityList.size());
+            ExampleEntity firstEntity = exampleEntityList.get(0);
+            assertEquals(exampleDTO.getDescription(), firstEntity.getDescription());
+            assertEquals(exampleDTO.getName(), firstEntity.getName());
+        });
+        producerTest.close();
+    }
+```
+
+  
