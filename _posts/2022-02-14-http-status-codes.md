@@ -6,7 +6,7 @@ categories: [HTTP]
 
 The status codes are:
 
-**1xx informational response**
+**1xx informational response**  
 100 Continue  
 101 Switching Protocols  
 102 Processing (WebDAV; RFC 2518)  
