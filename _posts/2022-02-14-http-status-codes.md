@@ -9,9 +9,7 @@ categories: [HTTP]
 101 Switching Protocols
 102 Processing (WebDAV; RFC 2518)
 103 Early Hints (RFC 8297)
-
 **2xx success**
-
 200 OK
 201 Created
 202 Accepted
