@@ -83,6 +83,7 @@ plugins:
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-remote-theme
 
 include: ['_pages']
 
@@ -96,4 +97,5 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
-theme: minima
+  
+remote_theme: pages-themes/leap-day@v0.2.0
