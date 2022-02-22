@@ -6,7 +6,8 @@ categories: [json, deserializer, java]
 We will show two ways to deserialize, deserializing the whole class or by type.  
 
 **Deserialize a complete class:**  
-```
+
+{% highlight java %} 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -26,7 +27,7 @@ public class OurClassDeserializer extends JsonDeserializer<OurClass> {
     }
 }
 
-```
+{% endhighlight %}
 
 And OurClass:  
 ```
