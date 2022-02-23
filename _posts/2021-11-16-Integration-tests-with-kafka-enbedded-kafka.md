@@ -11,7 +11,8 @@ categories: [java, kafka]
 
 Java code:
 
-<% highlight java %>
+<% highlight java %>  
+
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @DirtiesContext
@@ -70,7 +71,8 @@ public class ProducerServiceIntegrationTest {
 
 Java code:
 
-<% highlight java %>
+<% highlight java %>  
+
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @DirtiesContext
@@ -119,7 +121,8 @@ public class ConsumerServiceIntegrationTest {
         producerTest.close();
     }
 <% endhighlight %>  
-All the infomation comes from this [blog](https://gitbook.deddy.me/test-dintegration-avec-spring-boot-et-kafka/).
+
+All the infomation comes from this [blog](https://gitbook.deddy.me/test-dintegration-avec-spring-boot-et-kafka/).  
 And all the code is [this](https://github.com/Kevded/integration-test-spring-kafka-with-embedded-kafka-consumer-and-producer). github repository.
 
   
