@@ -7,9 +7,7 @@ categories: [java, kafka]
 - Simulation of a consumer for testing our producer.
 
 ![](https://i.imgur.com/frha3N1.png?raw=true)  
-{% highlight java %} import something 
-
-@ExtendWith(SpringExtension.class)
+{% highlight java %} @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @DirtiesContext
 @EmbeddedKafka(topics = { "TOPIC_OUT"})
@@ -118,6 +116,6 @@ public class ConsumerServiceIntegrationTest {
     }<% endhighlight %>  
 
 All the infomation comes from this [blog](https://gitbook.deddy.me/test-dintegration-avec-spring-boot-et-kafka/).  
-And all the code is inside [this](https://github.com/Kevded/integration-test-spring-kafka-with-embedded-kafka-consumer-and-producer) github repository..
+And all the code is inside [this](https://github.com/Kevded/integration-test-spring-kafka-with-embedded-kafka-consumer-and-producer) github repository.
 
   
