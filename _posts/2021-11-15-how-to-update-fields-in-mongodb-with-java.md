@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to update fields in mongodb with Java
-categories: [Java, Mongodb]
+categories: [java, mongodb]
 ---
 This is how do it with Java.
 
