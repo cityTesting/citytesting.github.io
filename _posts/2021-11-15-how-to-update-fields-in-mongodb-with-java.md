@@ -5,7 +5,7 @@ categories: [Java, Mongodb]
 ---
 This is how do it with Java.
 
-  ```
+  <% highlight java %>
   public class MongoClient{
     private final MongoDatabase mongoDatabase;
 
@@ -25,4 +25,5 @@ This is how do it with Java.
           collection.updateOne(filter, update);
       }
 }
-  ```
+  <% endhighlight %>
+  
