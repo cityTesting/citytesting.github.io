@@ -78,4 +78,5 @@ After this when we run:
 - mvn test → Unit tests will be executed.
 - mvn package → Unit tests will be executed.
 - mvn install → Compile tests but they are not executed.
-- mvn failsafe:integration-test → Integration tests will be executed.
+- mvn failsafe:integration-test → Integration tests will be executed and the build will not fail in case of a test does not pass.
+- mvn failsafe:integration-test failsafe:verify → Integration tests will be executed and the build will fail in case of a test does not pass.
