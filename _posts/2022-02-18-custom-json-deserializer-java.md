@@ -3,9 +3,11 @@ layout: post
 title: Custom Json java deserializer
 categories: [json, deserializer, java]
 ---
-We will show two ways to deserialize, deserializing the whole class or by type.  
-
-**Deserialize a complete class:**  
+We will show two ways to deserialize:
+- Deserializing the whole class.  
+- Deserializing by type.
+  
+**Deserialize whole class:**  
 
 {% highlight java %} 
 import com.fasterxml.jackson.core.JsonParser;
@@ -30,7 +32,7 @@ public class OurClassDeserializer extends JsonDeserializer<OurClass> {
 {% endhighlight %}
 
 And OurClass:  
-```
+{% highlight java %}
 import org.bson.types.ObjectId;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import OurClassDeserializer;
@@ -40,10 +42,11 @@ public class OurClass {
     ObjectId id;
     String deposits;
 }
-```
+{% endhighlight %}
 
 **Deserialize an ObjectId and Money**  
-```
+- ObjectId:      
+{% highlight java %}
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -58,9 +61,11 @@ public class ObjectIdDeserializer extends JsonDeserializer<ObjectId> {
     }
 }
 
-```
+{% endhighlight %}  
+    
+- Money:  
 
-```
+{% highlight java %}
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -80,10 +85,10 @@ public class MoneyDeserializer extends JsonDeserializer<Money> {
     }
 }
 
-```
+{% endhighlight %}
 
 And OurClass:  
-```
+{% highlight java %}
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 MoneyDeserializer;
 ObjectIdDeserializer;
@@ -103,5 +108,5 @@ public class OurClass {
     @JsonDeserialize(using = ObjectIdDeserializer.class) ObjectId id;
     @JsonDeserialize(using = MoneyDeserializer.class) Money money;
 }
-```
+{% endhighlight %}
 
