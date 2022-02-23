@@ -5,12 +5,12 @@ categories: [maven]
 ---
   
 Maven has to main plugins to run tests:  
-- maven-surefire-plugin: It is designed to run unit tests. So it will run test with Test in their class name.  
-- maven-failsafe-plugin:  It is designed to run integration tests, and will automatically include all test classes with IT in their class name.  
+- maven-surefire-plugin: It is designed to run unit tests, it will run tests inside classes with "Test" in their class name.  
+- maven-failsafe-plugin:  It is designed to run integration tests, it will run tests inside classes with "IT" in their class name.  
 
-In case that we just use maven-surefire-plugin we need to do this to run the integration tests:  
+In case that we just use maven-surefire-plugin we need to do add the folder that contains the integration tests, in other case it will run just the unit tests.  
 
-```
+{% highlight xml %} 
   <build>
     <finalName>${project.artifactId}</finalName>
     <plugins>
@@ -39,19 +39,20 @@ In case that we just use maven-surefire-plugin we need to do this to run the int
         </executions>
       </plugin>
     </plugins>
-```
+{% endhighlight %}
+
 
 After this when we run:
 
-- mvn verify -> Unit and integration tests will be executed
-- mvn integration-test -> Unit and integration tests will be executed
-- mvn test -> unit tests will be executed
-- mvn package -> Unit tests will be executed
-- mvn install -> compile tests but they are not executed.
+- mvn verify → Unit and integration tests will be executed
+- mvn integration-test → Unit and integration tests will be executed
+- mvn test → Unit tests will be executed
+- mvn package → Unit tests will be executed
+- mvn install → Compile tests but they are not executed.
 
 
-In case that we want to use maven-failsafe-plugin we need to do this to run the integration tests:  
-```
+In case that we want to use maven-failsafe-plugin we need to do this to include the integration tests:  
+{% highlight xml %} 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
@@ -68,12 +69,13 @@ In case that we want to use maven-failsafe-plugin we need to do this to run the 
       </plugin>
     </plugins>
 
-```  
+{% endhighlight %}  
+
 After this when we run:
 
-- mvn verify -> Unit and integration tests will be executed.
-- mvn integration-test -> Unit and integration tests will be executed.
-- mvn test -> unit tests will be executed.
-- mvn package -> Unit tests will be executed.
-- mvn install -> compile tests but they are not executed.
-- mvn failsafe:integration-test -> Integration tests will be executed.
+- mvn verify → Unit and integration tests will be executed.
+- mvn integration-test → Unit and integration tests will be executed.
+- mvn test → Unit tests will be executed.
+- mvn package → Unit tests will be executed.
+- mvn install → Compile tests but they are not executed.
+- mvn failsafe:integration-test → Integration tests will be executed.
