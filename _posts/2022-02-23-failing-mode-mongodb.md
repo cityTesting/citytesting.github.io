@@ -22,9 +22,11 @@ docker run --name some-mongo -d mongo:tag --setParameter enableTestCommands=1
 ``` 
 
 - Go into the docker container  
+
 ```
 docker exec -it some-mongo bash
  ```
+ 
 - Connect to mongo  
 
 ```
