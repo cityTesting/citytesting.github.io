@@ -11,7 +11,9 @@ categories: [java, kafka]
 
 Java code:  
 
-<% highlight java %>@ExtendWith(SpringExtension.class)
+<% highlight java %> 
+//ProducerServiceIntegrationTest.java
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @DirtiesContext
 @EmbeddedKafka(topics = { "TOPIC_OUT"})
@@ -68,7 +70,9 @@ public class ProducerServiceIntegrationTest {
 
 Java code:
 
-<% highlight java %>@ExtendWith(SpringExtension.class)
+<% highlight java %> 
+//ConsumerServiceIntegrationTest
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @DirtiesContext
 @EmbeddedKafka(topics = {"TOPIC_IN"})
