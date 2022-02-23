@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Kafka integration testing (embedded Kafka)
-categories: [Java, Kafka]
+categories: [java, kafka]
 ---
 
 - Simulation of a consumer for testing our producer.
@@ -11,7 +11,7 @@ categories: [Java, Kafka]
 
 Java code:
 
-```
+<% highlight java %>
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @DirtiesContext
@@ -61,7 +61,7 @@ public class ProducerServiceIntegrationTest {
         consumerServiceTest.close();
     }
 }
-  ```
+  <% endhighlight %>
   
 - Simulation of a producer for testing our consumer.
 
@@ -70,7 +70,7 @@ public class ProducerServiceIntegrationTest {
 
 Java code:
 
-```
+<% highlight java %>
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @DirtiesContext
@@ -118,8 +118,8 @@ public class ConsumerServiceIntegrationTest {
         });
         producerTest.close();
     }
-```
-All the infomation comes from [here](https://gitbook.deddy.me/test-dintegration-avec-spring-boot-et-kafka/).
-And the code is [here](https://github.com/Kevded/integration-test-spring-kafka-with-embedded-kafka-consumer-and-producer).
+<% endhighlight %>  
+All the infomation comes from this [blog](https://gitbook.deddy.me/test-dintegration-avec-spring-boot-et-kafka/).
+And all the code is [this](https://github.com/Kevded/integration-test-spring-kafka-with-embedded-kafka-consumer-and-producer). github repository.
 
   
