@@ -48,7 +48,7 @@ After this when we run:
 - mvn integration-test → Unit and integration tests will be executed
 - mvn test → Unit tests will be executed
 - mvn package → Unit tests will be executed
-- mvn install → Compile tests but they are not executed.
+- mvn install → Unit and integration tests will be executed.
 
 
 In case that we want to use maven-failsafe-plugin we need to do this to include the integration tests:  
@@ -77,6 +77,6 @@ After this when we run:
 - mvn integration-test → Unit and integration tests will be executed.
 - mvn test → Unit tests will be executed.
 - mvn package → Unit tests will be executed.
-- mvn install → Compile tests but they are not executed.
+- mvn install → Unit and integration tests will be executed.
 - mvn failsafe:integration-test → Integration tests will be executed and the build will not fail in case of a test does not pass.
 - mvn failsafe:integration-test failsafe:verify → Integration tests will be executed and the build will fail in case of a test does not pass.
