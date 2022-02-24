@@ -6,7 +6,7 @@ categories: [json, java]
 
 How to deserialize from json to a class without using a custom deserializer.
 
-{% highligh java %}      
+{% highlight java %}      
 import com.fasterxml.jackson.databind.ObjectMapper;
 import OurClass;
 
@@ -15,6 +15,6 @@ import OurClass;
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return objectMapper.readValue(jsonString, new TypeReference<OurClass>(){});
     }
-    {% endhighligh %}   
+    {% endhighlight %}   
 
 Note: This is possible because we are using "normal" types. I have checked that if Money from org.javamoney.moneta.Money is used does not work and we will need to use something similar to [this](https://citytesting.github.io/custom-json-deserializer-java/).
