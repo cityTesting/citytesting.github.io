@@ -11,7 +11,7 @@ Normally, when installing Java, we add to the PATH environment variable this `PA
 Therefore we would only have to:
 - Edit .zsh file.
 - Add at the end the following:
-{% lighlight java %}
+{% highlight java %}
 function java11(){
 export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home'
 java -version
@@ -22,6 +22,6 @@ export JAVA_HOME='/Library/Java/JavaVirtualMachines/azul-17.0.2/Contents/Home'
 java -version
 }
 
-{% endlighlight %}  
+{% endhighlight %}  
 With this if we execute java17 we will put Java 17 and java11 we will have Java 11 configured.
 
