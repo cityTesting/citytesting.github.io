@@ -23,5 +23,6 @@ java -version
 }
 
 {% endhighlight %}  
-With this if we execute in a terminal java17 we will put Java 17 and java11 we will have Java 11 configured.
+- Save it.  
+With this change, if we execute in a terminal java17 we will put Java 17 and java11 we will have Java 11 configured.
 
