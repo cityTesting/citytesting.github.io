@@ -30,7 +30,7 @@ And we have these json from a response as a String:
     "currency": "EUR",
     "value": 288.0
 }
-{% endhiglight%}  
+{% endhighlight %}  
   
 In order to convert it to Ourclass we can do it like this:  
 {% highlight java %}import com.fasterxml.jackson.databind.ObjectMapper;
