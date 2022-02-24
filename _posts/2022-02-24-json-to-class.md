@@ -6,6 +6,33 @@ categories: [json, java]
 
 How to deserialize from json to a class without using a custom deserializer.
 
+This is our class:  
+{% higjlight java %}
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class OurClass {
+    public String currency;
+    public double value;
+}
+{% endhighlight %}  
+  
+And we have these json from a response as a String:
+  
+{% highlight json %}
+{
+    "currency": "EUR",
+    "value": 288.0
+}
+{% endhiglight%}  
+  
+In order to convert it to Ourclass we can do it like this:  
 {% highlight java %}import com.fasterxml.jackson.databind.ObjectMapper;
 import OurClass;
 
