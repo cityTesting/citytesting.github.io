@@ -7,7 +7,7 @@ categories: [json, java]
 How to deserialize from json to a class without using a custom deserializer.
 
 This is our class:  
-{% higjlight java %}
+{% highlight java %}
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
