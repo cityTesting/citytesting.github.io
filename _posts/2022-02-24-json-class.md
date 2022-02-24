@@ -16,5 +16,6 @@ import OurClass;
     } {% endhighlight %}   
 
 Note: This is possible because we are using "normal" types. I have checked that if Money from org.javamoney.moneta.Money is used does not work and it returns this error:  
-> "com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `org.javamoney.moneta.Money` (no Creators, like default constructor, exist)"   
+> "com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of org.javamoney.moneta.Money (no Creators, like default constructor, exist)"   
+  
 So we will need to use something similar to [this](https://citytesting.github.io/custom-json-deserializer-java/).
