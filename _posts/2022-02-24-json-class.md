@@ -14,7 +14,7 @@ import OurClass;
         ObjectMapper objectMapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return objectMapper.readValue(jsonString, new TypeReference<OurClass>(){});
-    }
+    }  
     {% endhighlight %}   
 
 Note: This is possible because we are using "normal" types. I have checked that if Money from org.javamoney.moneta.Money is used does not work and it returns this error:  
