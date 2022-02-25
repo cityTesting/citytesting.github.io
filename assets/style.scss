@@ -20,10 +20,6 @@ html {
   height: 100%;
 }
 
-.highlighter-rouge {
-font-size: 12px;
-}
-
 body {
   background: #fff;
   font-family: -system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -1138,6 +1134,10 @@ Modules - reusable parts of our design
     -o-transform: translateX(0);
     transform: translateX(0);
   }
+}
+
+.highlighter-rouge {
+font-size: 12px;
 }
 
 
