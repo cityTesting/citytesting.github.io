@@ -9,10 +9,10 @@ When developing an application where certificates are used it is often convenien
 The steps to follow are as follows:
 - Create the certificates:
 
-{% highlight java %}keytool  -genkey -alias serverKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore serverKeystore.jks -storepass password
-keytool  -genkey -alias serverKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore serverTruststore.jks -storepass password
-keytool  -genkey -alias clientKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore clientKeystore.jks -storepass password
-keytool  -genkey -alias clientKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore clientTruststore.jks -storepass password{% endhighlight %}
+> keytool  -genkey -alias serverKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore serverKeystore.jks -storepass password
+> keytool  -genkey -alias serverKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore serverTruststore.jks -storepass password
+> keytool  -genkey -alias clientKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore clientKeystore.jks -storepass password
+> keytool  -genkey -alias clientKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore clientTruststore.jks -storepass password
 
 - Import server public cert into client truststore:
 {% highlight java %}keytool -export -rfc -keystore serverKeystore.jks -alias serverKey -file oasis-local-cxf-server.cer -storepass password
