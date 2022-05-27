@@ -10,8 +10,11 @@ The steps to follow are as follows:
 - Create the certificates:
 
 > keytool  -genkey -alias serverKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore serverKeystore.jks -storepass password
+
 > keytool  -genkey -alias serverKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore serverTruststore.jks -storepass password
+
 > keytool  -genkey -alias clientKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore clientKeystore.jks -storepass password
+
 > keytool  -genkey -alias clientKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore clientTruststore.jks -storepass password
 
 - Import server public cert into client truststore:
@@ -47,7 +50,7 @@ keytool -import -noprompt -trustcacerts -file oasis-local-cxf-client.cer -alias 
 
 - Add certificate 'wiremock.p12' to Postman
 
-![](https://i.imgur.com/byevASo.png)
+![](https://i.imgur.com/byevASos.png)
 
 
 continue..
