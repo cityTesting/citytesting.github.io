@@ -47,6 +47,7 @@ keytool -import -noprompt -trustcacerts -file oasis-local-cxf-client.cer -alias 
 
 - Add certificate 'wiremock.p12' to Postman
 
-![Add certificate to postman](https://imgur.com/byevASo?raw=true)
+[Imgur](https://i.imgur.com/byevASo.png)
+
 
 continue..
