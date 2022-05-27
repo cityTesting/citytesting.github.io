@@ -52,7 +52,7 @@ The steps to follow are as follows:
 }'{% endhighlight %}
 
 - Add certificate 'wiremock.p12' to Postman
-![](https://i.imgur.com/EOJEXsQ.png)
+![](https://i.imgur.com/NLp3SuG.png)
 
 - Disable SSL certification verification
 ![](https://i.imgur.com/EOJEXsQ.png)
