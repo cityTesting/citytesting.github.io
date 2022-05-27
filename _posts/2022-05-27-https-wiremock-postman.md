@@ -52,10 +52,10 @@ The steps to follow are as follows:
 }'{% endhighlight %}
 
 - Add certificate 'wiremock.p12' to Postman
-![](https://i.imgur.com/EOJEXsQs.png)
+![](https://i.imgur.com/EOJEXsQ.png)
 
 - Disable SSL certification verification
 ![](https://i.imgur.com/EOJEXsQ.png)
 
 - Now call to https://localhost:8181/secure and you should get 200 and Certificate is working!
-![](https://i.imgur.com/ztFR3Drs.png)
+![](https://i.imgur.com/ztFR3Dr.png)
