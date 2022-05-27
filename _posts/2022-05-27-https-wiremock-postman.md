@@ -18,17 +18,17 @@ The steps to follow are as follows:
 > keytool  -genkey -alias clientKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore clientTruststore.jks -storepass password
 
 - Import server public cert into client truststore:
-> keytool -export -rfc -keystore serverKeystore.jks -alias serverKey -file oasis-local-cxf-server.cer -storepass password
+> keytool -export -rfc -keystore serverKeystore.jks -alias serverKey -file local-cxf-server.cer -storepass password
 
-> keytool -v -printcert -file oasis-local-cxf-server.cer
+> keytool -v -printcert -file local-cxf-server.cer
 
-> keytool -import -noprompt -trustcacerts -file oasis-local-cxf-server.cer -alias serverKey -keystore clientTruststore.jks -storepass password
+> keytool -import -noprompt -trustcacerts -file local-cxf-server.cer -alias serverKey -keystore clientTruststore.jks -storepass password
 
 - Import client public cert into server truststore:
-> keytool -export -rfc -keystore clientKeystore.jks -alias clientKey -file oasis-local-cxf-client.cer -storepass password
+> keytool -export -rfc -keystore clientKeystore.jks -alias clientKey -file local-cxf-client.cer -storepass password
 
-> keytool -v -printcert -file oasis-local-cxf-client.cer
-> keytool -import -noprompt -trustcacerts -file oasis-local-cxf-client.cer -alias clientKey -keystore serverTruststore.jks -storepass password
+> keytool -v -printcert -file local-cxf-client.cer
+> keytool -import -noprompt -trustcacerts -file local-cxf-client.cer -alias clientKey -keystore serverTruststore.jks -storepass password
 
 - Create p12 certificate for using it in Postman:
 > keytool -importkeystore -srckeystore clientKeystore.jks -destkeystore wiremock.p12 -srcstoretype JKS -deststoretype PKCS12 -deststorepass password
