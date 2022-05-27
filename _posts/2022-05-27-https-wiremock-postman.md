@@ -18,20 +18,23 @@ The steps to follow are as follows:
 > keytool  -genkey -alias clientKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore clientTruststore.jks -storepass password
 
 - Import server public cert into client truststore:
-{% highlight java %}keytool -export -rfc -keystore serverKeystore.jks -alias serverKey -file oasis-local-cxf-server.cer -storepass password
-keytool -v -printcert -file oasis-local-cxf-server.cer
-keytool -import -noprompt -trustcacerts -file oasis-local-cxf-server.cer -alias serverKey -keystore clientTruststore.jks -storepass password{% endhighlight %}
+> keytool -export -rfc -keystore serverKeystore.jks -alias serverKey -file oasis-local-cxf-server.cer -storepass password
+
+> keytool -v -printcert -file oasis-local-cxf-server.cer
+
+> keytool -import -noprompt -trustcacerts -file oasis-local-cxf-server.cer -alias serverKey -keystore clientTruststore.jks -storepass password
 
 - Import client public cert into server truststore:
-{% highlight java %}keytool -export -rfc -keystore clientKeystore.jks -alias clientKey -file oasis-local-cxf-client.cer -storepass password
-keytool -v -printcert -file oasis-local-cxf-client.cer
-keytool -import -noprompt -trustcacerts -file oasis-local-cxf-client.cer -alias clientKey -keystore serverTruststore.jks -storepass password{% endhighlight %}
+> keytool -export -rfc -keystore clientKeystore.jks -alias clientKey -file oasis-local-cxf-client.cer -storepass password
+
+> keytool -v -printcert -file oasis-local-cxf-client.cer
+> keytool -import -noprompt -trustcacerts -file oasis-local-cxf-client.cer -alias clientKey -keystore serverTruststore.jks -storepass password
 
 - Create p12 certificate for using it in Postman:
-{% highlight java %}keytool -importkeystore -srckeystore clientKeystore.jks -destkeystore wiremock.p12 -srcstoretype JKS -deststoretype PKCS12 -deststorepass password{% endhighlight %}
+> keytool -importkeystore -srckeystore clientKeystore.jks -destkeystore wiremock.p12 -srcstoretype JKS -deststoretype PKCS12 -deststorepass password
 
 - Run Wiremock, we are using docker:
-{% highlight java %}docker run -v /local/path/to/certificates/files/serverKeystore.jks:/home/wiremock/serverKeystore.jks -v /local/path/to/certificates/files/serverTruststore.jks:/home/wiremock/serverTruststore.jks -it --rm -p 8089:8089 -p 8181:8181 --name wiremock  wiremock/wiremock:2.33.2  --port 8089 --https-port 8181 --verbose --https-keystore ./serverKeystore.jks --keystore-password password --keystore-type jks --https-truststore ./serverTruststore.jks --truststore-type jks --truststore-password password --key-manager-password password --https-require-client-cert{% endhighlight %}
+> docker run -v /local/path/to/certificates/files/serverKeystore.jks:/home/wiremock/serverKeystore.jks -v /local/path/to/certificates/files/serverTruststore.jks:/home/wiremock/serverTruststore.jks -it --rm -p 8089:8089 -p 8181:8181 --name wiremock  wiremock/wiremock:2.33.2  --port 8089 --https-port 8181 --verbose --https-keystore ./serverKeystore.jks --keystore-password password --keystore-type jks --https-truststore ./serverTruststore.jks --truststore-type jks --truststore-password password --key-manager-password password --https-require-client-cert
 
 - Add a response in Wiremock:
 {% highlight java %}curl --location --request POST 'http://localhost:8089/__admin/mappings' \
@@ -49,8 +52,10 @@ keytool -import -noprompt -trustcacerts -file oasis-local-cxf-client.cer -alias 
 }'{% endhighlight %}
 
 - Add certificate 'wiremock.p12' to Postman
+![](https://i.imgur.com/EOJEXsQs.png)
 
-![](https://i.imgur.com/byevASos.png)
+- Disable SSL certification verification
+![](https://i.imgur.com/EOJEXsQ.png)
 
-
-continue..
+- Now call to https://localhost:8181/secure and you should get 200 and Certificate is working!
+![](https://i.imgur.com/ztFR3Drs.png)
