@@ -68,3 +68,6 @@ The steps to follow are as follows:
 - Now call to https://localhost:8181/secure and you should get 200 and Certificate is working!
 
 ![](https://i.imgur.com/ztFR3Dr.png)
+
+It's true that here we have not used the clientTrustore but it might be need when we are creating the client in our app.
+
