@@ -7,7 +7,7 @@ categories: [wiremock, postman]
 When developing an application where certificates are used it is often convenient to test it using a non-real system to verify that we are creating a good request with the certificate included. Therefore we are going to show here how to simulate with wiremock a system which needs a valid certificate to respond correctly and we are going to validate it using Postman.
 
 The steps to follow are as follows:
-- Create the certificates:
+- Create the certificates(use localhost as first and lastname):
 
 > keytool  -genkey -alias serverKey -keyalg RSA -keysize 1024  -validity 365 -keypass password  -keystore serverKeystore.jks -storepass password
 
@@ -30,6 +30,7 @@ The steps to follow are as follows:
 > keytool -export -rfc -keystore clientKeystore.jks -alias clientKey -file local-cxf-client.cer -storepass password
 
 > keytool -v -printcert -file local-cxf-client.cer
+
 > keytool -import -noprompt -trustcacerts -file local-cxf-client.cer -alias clientKey -keystore serverTruststore.jks -storepass password
 
 - Create p12 certificate for using it in Postman:
@@ -65,4 +66,5 @@ The steps to follow are as follows:
 ![](https://i.imgur.com/EOJEXsQ.png)
 
 - Now call to https://localhost:8181/secure and you should get 200 and Certificate is working!
+
 ![](https://i.imgur.com/ztFR3Dr.png)
