@@ -7,7 +7,7 @@ categories: [kafka, java]
 When working with Kafka it is very convenient to prove that we are producing the message correctly, if we are the producer.  That is why we are going to show how to do this with Java. For this we are going to create a producer which will consume a message of the topic "topic_name".
 
 
-{% highlight java %} import org.springframework.kafka.core.ConsumerFactory;
+{% highlight java %}import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
@@ -46,11 +46,10 @@ private KafkaMessage getKafkaMessage() {
         consumerServiceTest.subscribe(Collections.singleton(kafkaPrefix + "topic_name"));
 
         return consumerServiceTest;
-    } {% endhighlight %}
+    }{% endhighlight %}
+And the KafkaMessage class is:
     
-    And the KafkaMessage class is:
-    
-    {% highlight java %}import com.fasterxml.jackson.annotation.JsonProperty;
+{% highlight java %}import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
