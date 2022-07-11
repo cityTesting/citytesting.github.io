@@ -59,15 +59,15 @@ git stash apply stash@{0}
 
 ```
 git diff master Branch1 > ../patchfile
-git checkout Branch2    
+git checkout otherBranchName    
 git apply ../patchfile
 ```
 
 * Uncommited local changes:
 
 ```
-git diff --patch --staged > ../patchfile
-git checkout Branch2
+git diff --patch > ../patchfile
+git checkout otherBranchName
 git apply ../patchfile
 ```
 
