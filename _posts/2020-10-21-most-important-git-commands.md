@@ -54,6 +54,14 @@ git stash list
 git stash apply stash@{0}
 ```
 
+**Pacth**, sometimes it is interesting or necessary to create patches with changes to be able to pass it on to a colleague without having to commit the changes.
+
+```
+git diff master Branch1 > ../patchfile
+git checkout Branch2    
+git apply ../patchfile
+```
+
 **Merge**, with this command we incorporate changes from other branch into the current branch. 
 ```
 git merge otherBranchName
