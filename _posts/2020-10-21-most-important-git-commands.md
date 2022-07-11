@@ -55,10 +55,19 @@ git stash apply stash@{0}
 ```
 
 **Pacth**, sometimes it is interesting or necessary to create patches with changes to be able to pass it on to a colleague without having to commit the changes.
+* Difference between out branch and master
 
 ```
 git diff master Branch1 > ../patchfile
 git checkout Branch2    
+git apply ../patchfile
+```
+
+* Uncommited local changes.
+
+```
+git diff --patch --staged > ../patchfile
+git checkout Branch2
 git apply ../patchfile
 ```
 
