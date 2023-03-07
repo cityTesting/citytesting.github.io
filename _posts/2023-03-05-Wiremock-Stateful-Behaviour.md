@@ -11,6 +11,8 @@ Wiremock has the Stateful behaviour which allows us to simulate this behaviour. 
 
 > curl --location --request POST 'http://localhost:8089/__admin/mappings' --header 'Content-Type: application/json' --data-raw '{"scenarioName": "Fail second attempt","newScenarioState": "secondAttempt","requiredScenarioState": "firstAttempt","request": {"method": "GET","url": "/invoices"},"response": {"status": 200}}'
 
+![](https://i.imgur.com/LZ5WsJI.png)
+
 After this we will receive first a 400 and then 200.
 
 [More info on Wiremock](https://wiremock.org/docs/stateful-behaviour/)
