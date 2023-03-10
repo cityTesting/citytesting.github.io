@@ -10,6 +10,7 @@ Wiremock has the Stateful behaviour which allows us to simulate this behaviour. 
 ```java
 curl --location --request POST 'http://localhost:8089/__admin/mappings' --header 'Content-Type: application/json' --data-raw '{  "scenarioName": "Fail second attempt", "newScenarioState":"firstAttempt", "request": {"method": "GET","url": "/invoices"},"response": {"status": 400}}'
 ```
+
 ```java
 curl --location --request POST 'http://localhost:8089/__admin/mappings' --header 'Content-Type: application/json' --data-raw '{"scenarioName": "Fail second attempt","newScenarioState": "secondAttempt","requiredScenarioState": "firstAttempt","request": {"method": "GET","url": "/invoices"},"response": {"status": 200}}'
 ```
