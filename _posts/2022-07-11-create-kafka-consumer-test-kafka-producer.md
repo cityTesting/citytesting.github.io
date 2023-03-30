@@ -4,8 +4,9 @@ title: Create a Kafka consumer to test a kafka producer
 categories: [kafka, java]
 ---
 
-When working with Kafka it is very convenient to prove that we are producing the message correctly, if we are the producer.  That is why we are going to show how to do this with Java. For this we are going to create a producer which will consume a message of the topic "topic_name".
+When working with Kafka, it is very convenient to verify that we are producing the message correctly if we are the producer. One way to do this is to validate/assert that the message has successfully landed in a topic.
 
+In Java, you can create a producer which will consume a message of the topic "topic_name" and then validate that it has been successfully produced. You can see an example of how to do this in the following code.
 
 {% highlight java %}import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
