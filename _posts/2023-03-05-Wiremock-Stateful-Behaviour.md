@@ -4,22 +4,29 @@ title: Wiremock Stateful Behaviour
 categories: [wiremock, api]
 ---
 
-When working with third-parties you do not always get the same response when calling the same endpoint, so it is interesting to be able to simulate these behaviours in order to test the integration of our system with them.
+WWhen working with third-party APIs, it's not uncommon to receive different responses when calling the same endpoint. This can make it difficult to test the integration of our system with theirs. To simulate these behaviors and test our system's response to them, we can use WireMock.
 
-Wiremock has the Stateful behaviour which allows us to simulate this behaviour. To do this we have to create these two mappings as follows:
+WireMock has a stateful behavior that allows us to simulate these scenarios. To do this, we need to create two mappings. The first mapping sets the scenario name and new scenario state to "Fail second attempt" and "firstAttempt", respectively. It also sets the request method to GET and the URL to "/invoices". The response status is set to 400.
+
 ```java
 curl --location --request POST 'http://localhost:8089/__admin/mappings' --header 'Content-Type: application/json' --data-raw '{  "scenarioName": "Fail second attempt", "newScenarioState":"firstAttempt", "request": {"method": "GET","url": "/invoices"},"response": {"status": 400}}'
 ```
+The second mapping sets the scenario name to "Fail second attempt", new scenario state to "secondAttempt", and required scenario state to "firstAttempt". It also sets the request method to GET and URL to "/invoices". The response status is set to 200.
+
 
 ```java
 curl --location --request POST 'http://localhost:8089/__admin/mappings' --header 'Content-Type: application/json' --data-raw '{"scenarioName": "Fail second attempt","newScenarioState": "secondAttempt","requiredScenarioState": "firstAttempt","request": {"method": "GET","url": "/invoices"},"response": {"status": 200}}'
 ```
 
-With these two curls we are going to add to the wiremock the scenario displays on the next image.
+With these two mappings, we can add the scenario displayed in the image below to WireMock. When we request localhost:8089/invoices for the first time, we'll receive a 400 status. When we request it again, we'll receive a 200 status.
+
 
 ![](https://i.imgur.com/LZ5WsJI.png)
 
-After this we will receive a 400 status the first time that it is requested to localhost:8089/invoices and then 200 status the second time. 
+WireMock also has other features that make it useful for testing APIs. For example, it can be used to simulate network latency or errors in responses. It also supports matching requests based on various criteria such as headers or query parameters.
+
+To use WireMock for testing, you'll need to add it as a dependency in your project and configure it appropriately. You can find more information on how to do this on their website at https://wiremock.org/.
+
 
 [More info on Wiremock](https://wiremock.org/docs/stateful-behaviour/)
 
