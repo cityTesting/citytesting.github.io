@@ -23,6 +23,10 @@ With these two mappings, we can add the scenario displayed in the image below to
 
 ![](https://i.imgur.com/LZ5WsJI.png)
 
+
+This is a video with the complete process:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aeioeXjiz2Y" title="Wiremock Stateful Behavior" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
 WireMock also has other features that make it useful for testing APIs. For example, it can be used to simulate network latency or errors in responses. It also supports matching requests based on various criteria such as headers or query parameters.
 
 
