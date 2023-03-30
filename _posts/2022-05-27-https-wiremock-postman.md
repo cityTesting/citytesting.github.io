@@ -4,7 +4,7 @@ title: How to test certificates with Wiremock and Postman
 categories: [wiremock, postman]
 ---
 
-When developing an application where certificates are used it is often convenient to test it using a non-real system to verify that we are creating a good request with the certificate included. Therefore we are going to show here how to simulate with wiremock a system which needs a valid certificate to respond correctly and we are going to validate it using Postman.
+When developing an application where certificates are used, it is often convenient to test it using a non-real system to verify that we are creating a good request with the certificate included. One way to do this is to simulate with WireMock a system which needs a valid certificate to respond correctly and validate it using Postman.
 
 The steps to follow are as follows:
 - Create the certificates(use localhost as first and lastname):
