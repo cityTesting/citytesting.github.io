@@ -4,7 +4,7 @@ title: Wiremock Stateful Behaviour
 categories: [wiremock, api]
 ---
 
-WWhen working with third-party APIs, it's not uncommon to receive different responses when calling the same endpoint. This can make it difficult to test the integration of our system with theirs. To simulate these behaviors and test our system's response to them, we can use WireMock.
+When working with third-party APIs, it's not uncommon to receive different responses when calling the same endpoint. This can make it difficult to test the integration of our system with theirs. To simulate these behaviors and test our system's response to them, we can use WireMock.
 
 WireMock has a stateful behavior that allows us to simulate these scenarios. To do this, we need to create two mappings. The first mapping sets the scenario name and new scenario state to "Fail second attempt" and "firstAttempt", respectively. It also sets the request method to GET and the URL to "/invoices". The response status is set to 400.
 
@@ -24,8 +24,6 @@ With these two mappings, we can add the scenario displayed in the image below to
 ![](https://i.imgur.com/LZ5WsJI.png)
 
 WireMock also has other features that make it useful for testing APIs. For example, it can be used to simulate network latency or errors in responses. It also supports matching requests based on various criteria such as headers or query parameters.
-
-To use WireMock for testing, you'll need to add it as a dependency in your project and configure it appropriately. You can find more information on how to do this on their website at https://wiremock.org/.
 
 
 [More info on Wiremock](https://wiremock.org/docs/stateful-behaviour/)
