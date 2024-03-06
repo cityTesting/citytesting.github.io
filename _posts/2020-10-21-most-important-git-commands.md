@@ -80,7 +80,6 @@ With the last command  `git push -u origin newBranchName`  we will create the ne
 > git checkout master  
 > git pull  
 > git checkout otherBranch  
-
 > git merge master  
 > git push  
 
