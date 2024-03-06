@@ -96,7 +96,7 @@ Rebase
 
 > git checkout master  
 > git pull  
-> git checkout ATO-XXXX  
+> git checkout otherBranch  
 > git rebase master  
 > #fix conflicts with IntelliJ for example  
 > git rebase --continue  
