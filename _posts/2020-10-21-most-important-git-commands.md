@@ -8,8 +8,7 @@ Next we are going to detail the most common commands when we are using git. Ther
 **Checkout**, It is used to update the files in the working directory with the version of the branch from the remote repository.
 * -b, to create a new local branch.
 
-> git checkout branchName
-
+> git checkout branchName  
 > git checkout -b newLocalBranchName
 
 **Pull**, this commands is used to get changes from the remote branch.
