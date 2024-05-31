@@ -98,10 +98,10 @@ Rebase
 > git pull  
 > git checkout otherBranch  
 > git rebase master  
-> #fix conflicts with IntelliJ for example
-> git add .
-> git rebase --continue
-> #maybe we have to fix conflicts again
+> #fix conflicts with IntelliJ for example  
+> git add .  
+> git rebase --continue  
+> #maybe we have to fix conflicts again  
 > git push --force-with-lease  
 
 
